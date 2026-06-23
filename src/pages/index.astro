@@ -533,12 +533,12 @@
       });
 
       // 햄버거 메뉴 열기/닫기
-      function toggleMenu() {
+      window.toggleMenu = function () {
         document.getElementById("navMenu").classList.toggle("open");
-      }
-      function closeMenu() {
+      };
+      window.closeMenu = function () {
         document.getElementById("navMenu").classList.remove("open");
-      }
+      };
     </script>
     
   </body>
