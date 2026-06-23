@@ -1187,6 +1187,26 @@
 
   /* 반응형 */
   @media (max-width: 768px) {
+      /* 반응형 */
+  @media (max-width: 768px) {
+    /* 모바일: 톤/가격 세로 배치 */
+    .truck-price-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .truck-ton {
+      white-space: nowrap;
+    }
+    .truck-price {
+      white-space: nowrap;
+      font-size: 22px;
+    }
+    /* 햄버거 버튼 보이기 */
+    .hamburger {
+      display: block !important;
+      ...
+
     /* 햄버거 버튼 보이기 */
     .hamburger {
       display: block !important;
