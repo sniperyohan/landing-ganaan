@@ -18,18 +18,18 @@
     <header class="header">
       <div class="header-inner">
         <div class="logo">
-  <img src="/logo.png" alt="가나안화물운송공사" class="logo-img" />
-</div>
-        <nav class="nav">
-          <a href="#service">화물운송서비스</a>
-          <a href="#moving">이사서비스</a>
-          <a href="#truck-price">차량별요금</a>
-          <a href="#moving-process">이사진행절차</a>
-          <a href="#price">화물요금표</a>
+          <img src="/logo.png" alt="가나안화물운송공사" class="logo-img" />
+        </div>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="메뉴 열기">☰</button>
+        <nav class="nav" id="navMenu">
+          <a href="#service" onclick="closeMenu()">화물운송서비스</a>
+          <a href="#moving" onclick="closeMenu()">이사서비스</a>
+          <a href="#truck-price" onclick="closeMenu()">차량별요금</a>
+          <a href="#moving-process" onclick="closeMenu()">이사진행절차</a>
+          <a href="#price" onclick="closeMenu()">화물요금표</a>
         </nav>
       </div>
     </header>
-
     <!-- 히어로 (영상 배경) -->
     <section class="hero">
       <video class="hero-video" autoplay muted loop playsinline>
@@ -531,7 +531,16 @@
           observer.observe(process);
         }
       });
+
+      // 햄버거 메뉴 열기/닫기
+      function toggleMenu() {
+        document.getElementById("navMenu").classList.toggle("open");
+      }
+      function closeMenu() {
+        document.getElementById("navMenu").classList.remove("open");
+      }
     </script>
+    
   </body>
 </html>
 
@@ -1178,11 +1187,29 @@
 
   /* 반응형 */
   @media (max-width: 768px) {
-    .nav {
-      gap: 12px;
+    /* 햄버거 버튼 보이기 */
+    .hamburger {
+      display: block;
     }
-    .nav a:not(.nav-tel) {
+    /* 메뉴: 평소엔 숨기고, open 클래스 붙으면 펼침 */
+    .nav {
       display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+    .nav.open {
+      display: flex;
+    }
+    .nav a {
+      padding: 14px 20px;
+      width: 100%;
     }
     .hero-title {
       font-size: 32px;
@@ -1438,6 +1465,16 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     border-color: #39FF14;            /* 테두리 네온 그린으로 */
+  }
+  /* 햄버거 버튼 - 평소엔 숨김 */
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #2d3748;
+    cursor: pointer;
+    line-height: 1;
   }
 
 </style>
