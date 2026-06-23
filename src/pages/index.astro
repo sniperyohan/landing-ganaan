@@ -1189,7 +1189,12 @@
   @media (max-width: 768px) {
     /* 햄버거 버튼 보이기 */
     .hamburger {
-      display: block;
+      display: block !important;
+      margin-left: auto;
+      font-size: 34px;
+      color: #2d3748;
+      z-index: 1001;
+      position: relative;
     }
     /* 메뉴: 평소엔 숨기고, open 클래스 붙으면 펼침 */
     .nav {
