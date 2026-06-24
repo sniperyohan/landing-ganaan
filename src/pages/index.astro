@@ -55,6 +55,31 @@
       </div>
     </section>
 
+<!-- 회사 소개 (인사말) -->
+<section class="section about-section" id="about">
+  <div class="about-bg-quote">"</div>
+  <div class="section-inner about-inner">
+    <div class="about-head reveal">
+      <span class="about-label">GREETINGS</span>
+      <h2 class="about-title">정직과 신뢰로<br />고객의 짐을 모십니다</h2>
+      <div class="about-line"></div>
+    </div>
+    <div class="about-body reveal">
+      <p class="about-lead">
+        가나안화물운송공사를 찾아주신<br />
+        고객 여러분께 진심으로 감사드립니다.
+      </p>
+      <div class="about-paras">
+        <p>저희는 화물운송 한 건 한 건을 고객의 소중한 자산으로 여기며, 검증된 차량과 숙련된 인력으로 안전하고 정확한 운송을 약속드립니다.</p>
+        <p>일반화물부터 이사화물, 기업물류까지 — 작은 짐 하나도 내 것처럼 다루는 정성으로 전국 어디든 책임지고 모시겠습니다.</p>
+        <p>믿고 맡겨주시는 만큼, 정직과 신뢰로 보답하는 가나안화물운송공사가 되겠습니다.</p>
+      </div>
+      <p class="about-sign">가나안화물운송공사 <strong>임직원 일동</strong></p>
+    </div>
+  </div>
+</section>
+
+
     <!-- 서비스 -->
     <section class="section" id="service">
       <div class="section-inner">
@@ -152,6 +177,33 @@
           </div>
         </div>
 
+
+        <div class="moving-process" id="moving-process">
+          <h3 class="process-title">이사 진행 절차</h3>
+          <div class="process-steps">
+            <div class="step">
+              <span class="step-num">1</span><span class="step-txt">방문/온라인 견적</span>
+            </div>
+            <div class="step">
+              <span class="step-num">2</span><span class="step-txt">필요 인원 확인</span>
+            </div>
+            <div class="step">
+              <span class="step-num">3</span><span class="step-txt">이사 계약 체결</span>
+            </div>
+            <div class="step">
+              <span class="step-num">4</span><span class="step-txt">계약금 (견적의 약 10%)</span>
+            </div>
+            <div class="step">
+              <span class="step-num">5</span><span class="step-txt">숙련 기능공 작업</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 차량별 운송 요금 (별도 섹션) -->
+    <section class="section" id="truck-price">
+      <div class="section-inner">
         <!-- 차량별 운송 요금 -->
         <div class="truck-price-box" id="truck-price">
           <h3 class="process-title">차량별 운송 요금</h3>
@@ -232,37 +284,6 @@
                 <li>중량 · 부피 · 적재방법 제한 거의 없음</li>
                 <li>전국 운송 (일부 도서지역 제외)</li>
               </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="moving-process" id="moving-process">
-          <h3 class="process-title">이사 진행 절차</h3>
-          <div class="process-steps">
-            <div class="step">
-              <span class="step-num">1</span><span class="step-txt"
-                >방문/온라인 견적</span
-              >
-            </div>
-            <div class="step">
-              <span class="step-num">2</span><span class="step-txt"
-                >필요 인원 확인</span
-              >
-            </div>
-            <div class="step">
-              <span class="step-num">3</span><span class="step-txt"
-                >이사 계약 체결</span
-              >
-            </div>
-            <div class="step">
-              <span class="step-num">4</span><span class="step-txt"
-                >계약금 (견적의 약 10%)</span
-              >
-            </div>
-            <div class="step">
-              <span class="step-num">5</span><span class="step-txt"
-                >숙련 기능공 작업</span
-              >
             </div>
           </div>
         </div>
@@ -446,6 +467,21 @@
           );
           observer.observe(process);
         }
+
+        // 인사말 섹션 등장 애니메이션
+        var aboutObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+              }
+            });
+          },
+          { threshold: 0.8 },
+        );
+        document.querySelectorAll(".about-section .reveal").forEach(function (el) {
+          aboutObserver.observe(el);
+        });
       });
     </script>
   </body>
@@ -632,7 +668,7 @@
     padding: 80px 20px;
   }
   .section-gray {
-    background: #f7f9fc;
+    background: #f1f3f6;
   }
   .section-inner {
     max-width: 1100px;
@@ -658,7 +694,16 @@
   .card-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 30px;
+    margin-top: 50px;
+    align-items: stretch;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-body {
+    flex: 1;
   }
   .card {
     background: #fff;
@@ -1126,6 +1171,17 @@
       padding: 14px 20px;
       width: 100%;
     }
+      @media (max-width: 768px) {
+    .about-title { font-size: 30px; }
+    .about-lead { font-size: 20px; }
+    .about-paras p { font-size: 15.5px; }
+
+    .card-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
     .hero-title {
       font-size: 32px;
     }
@@ -1380,6 +1436,135 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     border-color: #39FF14;            /* 테두리 네온 그린으로 */
+  }
+  /* ===== 인사말 섹션 (다크 리뉴얼) ===== */
+  .about-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a2238 0%, #0f1626 100%);
+    padding: 120px 0;
+  }
+  /* 은은한 금색 광원 효과 */
+  .about-section::after {
+    content: "";
+    position: absolute;
+    top: -120px;
+    left: -120px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(245,197,24,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .about-bg-quote {
+    position: absolute;
+    top: -80px;
+    right: 3%;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 400px;
+    line-height: 1;
+    color: rgba(245, 197, 24, 0.07);
+    pointer-events: none;
+    user-select: none;
+  }
+  .about-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .about-head {
+    position: relative;
+    padding-left: 28px;
+  }
+  .about-head::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 5px;
+    height: calc(100% - 8px);
+    background: linear-gradient(180deg, #f5c518, #e0a800);
+    border-radius: 4px;
+    box-shadow: 0 0 16px rgba(245,197,24,0.5);
+  }
+  .about-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 6px;
+    color: #f5c518;
+    margin-bottom: 20px;
+  }
+  .about-title {
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.35;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    margin: 0;
+  }
+  .about-line {
+    width: 60px;
+    height: 3px;
+    background: #f5c518;
+    margin-top: 28px;
+    border-radius: 3px;
+  }
+  .about-body {
+    text-align: left;
+  }
+  .about-lead {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.55;
+    color: #ffffff;
+    margin: 0 0 28px;
+  }
+  .about-paras p {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 2;
+    color: #c2cad8;
+    margin: 0 0 18px;
+  }
+  .about-sign {
+    margin-top: 34px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    text-align: right;
+    font-size: 16px;
+    color: #8a94a6;
+  }
+  .about-sign strong {
+    color: #f5c518;
+    font-weight: 800;
+    margin-left: 4px;
+  }
+
+  /* 등장 애니메이션 */
+  .reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.4s ease, transform 1.4s ease;
+  }
+  .reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .about-body.reveal { transition-delay: 0.3s; }
+
+  @media (max-width: 768px) {
+    .about-section { padding: 80px 0; }
+    .about-bg-quote { font-size: 240px; top: -40px; right: 0; }
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .about-title { font-size: 30px; }
+    .about-lead { font-size: 20px; }
+    .about-paras p { font-size: 15.5px; line-height: 1.9; }
   }
 
 </style>
