@@ -630,10 +630,17 @@
           },
           { threshold: 0.33 }
         );
-        document.querySelectorAll(".section, .cta-banner").forEach(function (el) {
+        var fadeEls = document.querySelectorAll(".section, .cta-banner");
+        fadeEls.forEach(function (el) {
           el.classList.add("fade-up");
           fadeObserver.observe(el);
         });
+        // 안전장치: 화면에 이미 보이는 섹션은 즉시 표시 + 3초 후 전부 강제 표시
+        setTimeout(function () {
+          fadeEls.forEach(function (el) {
+            el.classList.add("show");
+          });
+        }, 3000);
       });
     </script>
   </body>
@@ -1942,6 +1949,13 @@
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 1.8s ease, transform 1.8s ease;
+  }
+  /* 모바일에서는 등장 효과 끄고 항상 보이게 */
+  @media (max-width: 768px) {
+    .fade-up {
+      opacity: 1 !important;
+      transform: none !important;
+    }
   }
   .fade-up.show {
     opacity: 1;
