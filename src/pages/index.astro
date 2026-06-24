@@ -617,6 +617,23 @@
         document.querySelectorAll(".about-section .reveal").forEach(function (el) {
           aboutObserver.observe(el);
         });
+
+        // 전체 섹션 스크롤 등장 효과
+        var fadeObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                fadeObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.33 }
+        );
+        document.querySelectorAll(".section, .cta-banner").forEach(function (el) {
+          el.classList.add("fade-up");
+          fadeObserver.observe(el);
+        });
       });
     </script>
   </body>
@@ -1007,10 +1024,11 @@
   }
   .process-title {
     text-align: center;
-    font-size: 28px;
+    font-size: 42px;
     font-weight: 800;
-    color: #2d3748;
-    margin-bottom: 50px;
+    color: #1a202c;
+    margin-bottom: 70px;
+    letter-spacing: -0.5px;
   }
   .process-steps {
     display: flex;
@@ -1056,6 +1074,7 @@
     background: #2d3748 !important;
     padding: 8px 14px !important;
     border-radius: 20px !important;
+    margin-top: 16px;
     opacity: 0;
     transform: translateY(8px);
     transition:
@@ -1509,8 +1528,7 @@
     }
   }
     /* 섹션 제목 5개 통일 */
-  .section-title,
-  .process-title {
+  .section-title {
     font-size: 42px;
     font-weight: 800;
     color: #1a202c;
@@ -1521,7 +1539,8 @@
   .section-sub,
   .truck-box-sub {
     font-size: 18px;
-    color: #718096;
+    color: #475569;
+    font-weight: 600;
     text-align: center;
     margin-bottom: 48px;
   }
@@ -1910,6 +1929,39 @@
     opacity: 1;
     padding: 10px 16px;
     margin-right: 14px;
+  }
+  /* 이사 서비스 섹션 배경 이미지 */
+  #moving {
+    position: relative;
+    background-image: linear-gradient(rgba(231,235,242,0.93), rgba(231,235,242,0.93)), url('/moving-bg.png');
+    background-size: cover;
+    background-position: center;
+  }
+  /* 스크롤 등장 효과 (전체 공통) */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.8s ease, transform 1.8s ease;
+  }
+  .fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* 주소 검색 입력칸 (클릭 유도) */
+  .inquiry-field input[readonly] {
+    cursor: pointer;
+    background-color: #eef4ff !important;
+    border: 1px solid #c7d9f5 !important;
+    color: #2563eb !important;
+    font-weight: 600;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 14px center !important;
+    padding-right: 40px;
+  }
+  .inquiry-field input[readonly]:hover {
+    background-color: #e0ecff !important;
+    border-color: #2563eb !important;
   }
 
 </style>
