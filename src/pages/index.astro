@@ -1218,7 +1218,7 @@
     }
     /* 메뉴: 평소엔 숨기고, open 클래스 붙으면 펼침 */
     .nav {
-      display: none;
+      display: none !important;
       position: absolute;
       top: 100%;
       left: 0;
@@ -1230,7 +1230,7 @@
       padding: 10px 0;
     }
     .nav.open {
-      display: flex;
+      display: flex !important;
     }
     .nav a {
       padding: 14px 20px;
@@ -1506,6 +1506,14 @@
 
 <script>
   const INQUIRY_URL = "여기에_나중에_웹앱_URL_붙여넣기";
+
+  // 햄버거 메뉴
+  window.toggleMenu = function () {
+    document.getElementById("navMenu").classList.toggle("open");
+  };
+  window.closeMenu = function () {
+    document.getElementById("navMenu").classList.remove("open");
+  };
 
   window.openInquiryModal = function () {
     document.getElementById("inquiryModal").classList.add("active");
