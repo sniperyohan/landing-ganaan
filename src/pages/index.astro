@@ -316,23 +316,86 @@
           E-mail : gmq1004@gmail.com · 사업자등록번호 : 856-18-02667<br />
           화물자동차운송주선사업허가번호 : 제 2026-61 호
         </p>
+        <p class="footer-links">
+          <a href="#" onclick="openPolicy('privacy'); return false;">개인정보처리방침</a>
+          <span class="footer-divider">|</span>
+          <a href="#" onclick="openPolicy('terms'); return false;">이용약관</a>
+        </p>
         <p class="footer-copy">
           © 2026 가나안화물운송공사. All rights reserved.
         </p>
       </div>
     </footer>
+        <!-- 개인정보처리방침 / 이용약관 팝업 -->
+    <div id="policyLayer" class="policy-layer">
+      <div class="policy-box">
+        <button type="button" class="policy-close" onclick="closePolicy()">✕</button>
+
+        <div id="policy-privacy" class="policy-content">
+          <h2 class="policy-title">개인정보처리방침</h2>
+          <p>가나안화물운송공사(이하 '회사')는 이용자의 개인정보를 중요시하며, 「개인정보 보호법」을 준수하기 위하여 노력하고 있습니다.</p>
+
+          <h3>1. 수집하는 개인정보 항목</h3>
+          <p>회사는 견적 및 상담 문의를 위해 아래와 같은 개인정보를 수집합니다.<br />
+          - 필수항목 : 이름, 연락처(휴대전화번호), 출발지·도착지 주소<br />
+          - 선택항목 : 희망 날짜·시간, 기타 문의내용</p>
+
+          <h3>2. 개인정보의 수집 및 이용 목적</h3>
+          <p>수집한 개인정보는 견적 접수 및 확인, 상담 응대, 운송 서비스 제공 및 안내 목적으로만 이용됩니다.</p>
+
+          <h3>3. 개인정보의 보유 및 이용 기간</h3>
+          <p>수집·이용 목적이 달성된 후 지체 없이 파기합니다. 단, 관계 법령에 따라 보존이 필요한 경우 해당 기간 동안 보관합니다.</p>
+
+          <h3>4. 개인정보의 제3자 제공</h3>
+          <p>회사는 이용자의 동의 없이 개인정보를 외부에 제공하지 않습니다. 다만, 운송 서비스 제공을 위해 불가피한 경우 사전 동의를 받습니다.</p>
+
+          <h3>5. 개인정보 보호책임자</h3>
+          <p>- 성명 : 이광진 (대표자)<br />
+          - 연락처 : 1588-8807<br />
+          - 이메일 : gmq1004@gmail.com</p>
+
+          <p class="policy-date">시행일자 : 2026년 6월 24일</p>
+        </div>
+
+        <div id="policy-terms" class="policy-content" style="display: none;">
+          <h2 class="policy-title">이용약관</h2>
+
+          <h3>제1조 (목적)</h3>
+          <p>본 약관은 가나안화물운송공사(이하 '회사')가 제공하는 화물운송 및 이사 관련 서비스의 이용 조건과 절차, 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
+
+          <h3>제2조 (서비스의 내용)</h3>
+          <p>회사는 일반화물·이사화물·기업화물·특수화물 등의 운송 서비스와 이에 부수하는 견적·상담 서비스를 제공합니다.</p>
+
+          <h3>제3조 (견적 및 계약)</h3>
+          <p>견적은 화물의 중량·부피·거리·차종 등에 따라 산정되며, 실제 물량 및 현장 상황에 따라 변동될 수 있습니다. 정식 계약은 양 당사자의 합의에 따라 성립합니다.</p>
+
+          <h3>제4조 (이용자의 의무)</h3>
+          <p>이용자는 견적 및 운송에 필요한 정보를 정확하게 제공해야 하며, 허위 정보로 인해 발생한 문제에 대해서는 회사가 책임지지 않습니다.</p>
+
+          <h3>제5조 (책임의 한계)</h3>
+          <p>천재지변, 교통 통제 등 회사의 통제를 벗어난 사유로 인한 운송 지연 또는 손해에 대해서는 회사의 책임이 제한될 수 있습니다.</p>
+
+          <h3>제6조 (분쟁 해결)</h3>
+          <p>서비스 이용과 관련하여 분쟁이 발생할 경우, 관련 법령 및 상관례에 따라 원만히 해결하는 것을 원칙으로 합니다.</p>
+
+          <p class="policy-date">시행일자 : 2026년 6월 24일</p>
+        </div>
+      </div>
+    </div>
+
 
     <!-- 플로팅 버튼 -->
     <div class="float-btns">
-      <a href="tel:1588-8807" class="float-btn float-tel"
-        ><span><svg width="28" height="28" viewBox="0 0 24 24" fill="#39FF14" style="vertical-align:middle;margin-right:6px"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-</span>전화상담</a
-      >
-      <button
-        type="button"
-        class="float-btn float-inquiry"
-        onclick="openInquiryModal()"><span>💬</span>견적문의</button
-      >
+      <a href="tel:1588-8807" class="float-btn float-tel">
+        <span class="float-msg">부담없이 전화주세요</span>
+        <span class="float-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="#39FF14" style="vertical-align:middle"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
+        <span class="float-label">전화상담</span>
+      </a>
+      <button type="button" class="float-btn float-inquiry" onclick="openInquiryModal()">
+        <span class="float-msg">빠른답변 약속드립니다</span>
+        <span class="float-icon">💬</span>
+        <span class="float-label">견적문의</span>
+      </button>
     </div>
 
     <!-- 견적문의 팝업 -->
@@ -1671,7 +1734,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 16px 20px;
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    background: linear-gradient(135deg, #38bdf8, #7dd3fc);
     color: #fff;
     font-weight: 800;
     font-size: 16px;
@@ -1719,6 +1782,135 @@
     margin-bottom: 6px;
     display: block;
   }
+  /* 푸터 링크 */
+  .footer-links {
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+  .footer-links a {
+    color: #cbd5e0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  .footer-divider {
+    color: #4a5568;
+    margin: 0 12px;
+  }
+
+  /* 약관 팝업 */
+  .policy-layer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .policy-layer.active {
+    display: flex;
+  }
+  .policy-box {
+    position: relative;
+    background: #fff;
+    width: 100%;
+    max-width: 640px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 16px;
+    padding: 40px 36px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: addrPop 0.25s ease;
+  }
+  .policy-close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #718096;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .policy-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1a202c;
+    padding-bottom: 18px;
+    border-bottom: 2px solid #b08900;
+    margin-bottom: 24px;
+  }
+  .policy-content h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: #2d3748;
+    margin: 24px 0 8px;
+  }
+  .policy-content p {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #4a5568;
+    margin: 0;
+  }
+  .policy-date {
+    margin-top: 28px !important;
+    color: #a0aec0 !important;
+    font-size: 13px !important;
+  }
+  /* 플로팅 버튼 슬라이드 멘트 */
+  .float-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .float-btn .float-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    line-height: 1;
+  }
+  .float-btn .float-label {
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  /* 숨겨진 멘트 (왼쪽으로 펼쳐짐) */
+  .float-btn .float-msg {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 0;
+    white-space: nowrap;
+    background: #1f2937;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0;
+    border-radius: 10px;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    transition: max-width 0.4s ease, opacity 0.3s ease, padding 0.4s ease, margin-right 0.4s ease;
+    pointer-events: none;
+  }
+  /* 마우스 오버 시 펼침 */
+  .float-btn:hover .float-msg {
+    max-width: 240px;
+    opacity: 1;
+    padding: 10px 16px;
+    margin-right: 14px;
+  }
 
 </style>
 
@@ -1764,6 +1956,21 @@
 
   document.getElementById("addrLayer").addEventListener("click", function (e) {
     if (e.target === this) window.closeAddrLayer();
+  });
+
+  // 개인정보처리방침 / 이용약관 팝업
+  window.openPolicy = function (type) {
+    document.getElementById("policy-privacy").style.display =
+      type === "privacy" ? "block" : "none";
+    document.getElementById("policy-terms").style.display =
+      type === "terms" ? "block" : "none";
+    document.getElementById("policyLayer").classList.add("active");
+  };
+  window.closePolicy = function () {
+    document.getElementById("policyLayer").classList.remove("active");
+  };
+  document.getElementById("policyLayer").addEventListener("click", function (e) {
+    if (e.target === this) window.closePolicy();
   });
 
   document
