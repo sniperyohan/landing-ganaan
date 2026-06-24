@@ -360,11 +360,22 @@
           <!-- 1. 출발지(상차) -->
           <div class="inquiry-row">
             <div class="inquiry-field">
-              <label>출발지(상차) 주소 <span>*</span></label><input
+              <label>출발지(상차) 주소 <span>*</span></label>
+              <input
                 type="text"
                 name="fromAddr"
+                id="fromAddr"
                 required
-                placeholder="예: 대전 대덕구"
+                readonly
+                placeholder="주소 검색을 눌러주세요"
+                onclick="searchAddr('fromAddr')"
+                style="cursor: pointer; background: #f9fafb;"
+              />
+              <input
+                type="text"
+                name="fromAddrDetail"
+                placeholder="상세주소 (동·호수 등)"
+                style="margin-top: 8px;"
               />
             </div>
             <div class="inquiry-field">
@@ -380,11 +391,22 @@
           <!-- 2. 도착지(하차) -->
           <div class="inquiry-row">
             <div class="inquiry-field">
-              <label>도착지(하차) 주소 <span>*</span></label><input
+              <label>도착지(하차) 주소 <span>*</span></label>
+              <input
                 type="text"
                 name="toAddr"
+                id="toAddr"
                 required
-                placeholder="예: 서울 강남구"
+                readonly
+                placeholder="주소 검색을 눌러주세요"
+                onclick="searchAddr('toAddr')"
+                style="cursor: pointer; background: #f9fafb;"
+              />
+              <input
+                type="text"
+                name="toAddrDetail"
+                placeholder="상세주소 (동·호수 등)"
+                style="margin-top: 8px;"
               />
             </div>
             <div class="inquiry-field">
@@ -450,6 +472,18 @@
         </form>
       </div>
     </div>
+
+    <!-- 카카오 주소 검색 레이어 -->
+    <div id="addrLayer" class="addr-layer">
+      <div class="addr-box">
+        <div class="addr-head">
+          <span>주소 검색</span>
+          <button type="button" class="addr-close" onclick="closeAddrLayer()">✕</button>
+        </div>
+        <div id="addrWrap" class="addr-wrap"></div>
+      </div>
+    </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var process = document.querySelector(".moving-process");
@@ -1567,7 +1601,58 @@
     .about-paras p { font-size: 15.5px; line-height: 1.9; }
   }
 
+  /* 주소 검색 레이어 */
+  .addr-layer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .addr-layer.active {
+    display: flex;
+  }
+  .addr-box {
+    background: #fff;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: addrPop 0.25s ease;
+  }
+  @keyframes addrPop {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .addr-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #fff;
+    font-weight: 800;
+    font-size: 16px;
+  }
+  .addr-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .addr-wrap {
+    height: 460px;
+  }
+
 </style>
+
+<script is:inline src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <script>
   const INQUIRY_URL = "여기에_나중에_웹앱_URL_붙여넣기";
@@ -1586,6 +1671,31 @@
   window.closeInquiryModal = function () {
     document.getElementById("inquiryModal").classList.remove("active");
   };
+
+  // 카카오 주소 검색 (레이어 방식)
+  window.searchAddr = function (targetId) {
+    const layer = document.getElementById("addrLayer");
+    const wrap = document.getElementById("addrWrap");
+    wrap.innerHTML = "";
+    new daum.Postcode({
+      width: "100%",
+      height: "100%",
+      oncomplete: function (data) {
+        document.getElementById(targetId).value = data.roadAddress;
+        layer.classList.remove("active");
+      },
+    }).embed(wrap);
+    layer.classList.add("active");
+  };
+
+  window.closeAddrLayer = function () {
+    document.getElementById("addrLayer").classList.remove("active");
+  };
+
+  document.getElementById("addrLayer").addEventListener("click", function (e) {
+    if (e.target === this) window.closeAddrLayer();
+  });
+
   document
     .getElementById("inquiryModal")
     .addEventListener("click", function (e) {
