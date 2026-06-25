@@ -145,7 +145,7 @@
       <div class="section-inner">
         <h2 class="section-title">이사 서비스</h2>
         <p class="section-sub">
-          원룸부터 사무실 이전까지, 상황에 맞는 이사 솔루션
+          원룸 ~ 사무실 이전까지, 상황에 맞는 이사 솔루션
         </p>
         <div class="card-grid">
           <div class="card">
@@ -225,7 +225,7 @@
               </div>
               <div class="truck-price-row">
                 <span class="truck-ton">1톤</span>
-                <span class="truck-price">40,000원 부터~</span>
+                <span class="truck-price">40,000원~</span>
               </div>
               <ul class="truck-spec">
                 <li>카고 / 탑차 / 윙카 / 리프트</li>
@@ -250,7 +250,7 @@
               </div>
               <div class="truck-price-row">
                 <span class="truck-ton">2.5톤</span>
-                <span class="truck-price">85,000원 부터~</span>
+                <span class="truck-price">85,000원~</span>
               </div>
               <ul class="truck-spec">
                 <li>카고 / 탑차 / 윙카 / 리프트</li>
@@ -275,7 +275,7 @@
               </div>
               <div class="truck-price-row">
                 <span class="truck-ton">5톤</span>
-                <span class="truck-price">110,000원 부터~</span>
+                <span class="truck-price">110,000원~</span>
               </div>
               <ul class="truck-spec">
                 <li>카고 / 탑차 / 윙카 / 리프트</li>
@@ -309,13 +309,15 @@
     <footer class="footer">
       <div class="footer-inner">
         <p class="footer-brand">가나안화물운송공사</p>
-        <p class="footer-info">
-          대표자 : 이광진 · 상호 : 가나안화물운송공사<br />
-          본사 : 대전광역시 대덕구 신탄진로218번길 62, 상가1동 106호<br />
-          TEL : 1588-8807 / 042-936-2433 · FAX : 0504-414-4971<br />
-          E-mail : gmq1004@gmail.com · 사업자등록번호 : 856-18-02667<br />
-          화물자동차운송주선사업허가번호 : 제 2026-61 호
-        </p>
+      <p class="footer-info">
+        대표자 : 이광진 · 상호 : 가나안화물운송공사<br />
+        본사 : 대전광역시 대덕구 신탄진로218번길 62, 상가1동 106호<br />
+        TEL : 1588-8807 / 042-936-2433<span class="pc-only"> · FAX : 0504-414-4971</span><br class="mobile-br" />
+        <span class="mobile-only">FAX : 0504-414-4971<br /></span>
+        E-mail : gmq1004@gmail.com<span class="pc-only"> · 사업자등록번호 : 856-18-02667</span><br class="mobile-br" />
+        <span class="mobile-only">사업자등록번호 : 856-18-02667<br /></span>
+        화물자동차운송주선사업허가번호 : 제 2026-61 호
+      </p>
         <p class="footer-links">
           <a href="#" onclick="openPolicy('privacy'); return false;">개인정보처리방침</a>
           <span class="footer-divider">|</span>
@@ -1510,22 +1512,28 @@
   } /* 5톤 - 제일 크게 */
   .truck-price-row {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     background: #f7f8fa;
     border-radius: 10px;
-    padding: 14px 18px;
+    padding: 18px;
     margin-bottom: 20px;
   }
   .truck-ton {
     font-size: 18px;
     font-weight: 800;
     color: #2d3748;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e2e6ee;
+    width: 100%;
+    text-align: center;
   }
   .truck-price {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 800;
     color: #e63946;
+    white-space: nowrap;
   }
   .truck-spec {
     list-style: none;
@@ -2027,6 +2035,18 @@
 }
 @media (max-width: 768px) {
   .mobile-br {
+    display: inline;
+  }
+}
+/* 모바일/PC 전용 표시 */
+.mobile-only {
+  display: none;
+}
+@media (max-width: 768px) {
+  .pc-only {
+    display: none;
+  }
+  .mobile-only {
     display: inline;
   }
 }
