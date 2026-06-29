@@ -8,7 +8,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <title>가나안화물운송공사 | 전국 24시 화물·이사 운송 전문</title>
+    <title>고고트럭 (GoGo Truck) | 전국 24시 화물·이사 운송 전문</title>
+
     <meta
       name="description"
       content="전국 24시 화물운송, 전차종 상시배차. 일반화물, 이사화물, 기업화물, 특수화물 전문. 대표번호 010-2166-8259"
@@ -16,7 +17,7 @@
 
     <!-- 카카오톡/SNS 공유 미리보기 -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="가나안화물운송공사 | 전국 24시 화물·이사 운송" />
+    <meta property="og:title" content="고고트럭 (GoGo Truck) | 전국 24시 화물·이사 운송" />
     <meta property="og:description" content="원룸부터 사무실까지, 맞춤 이사 솔루션. 지금 바로 무료 견적을 받아보세요." />
     <meta property="og:image" content="https://landing-ganaan.pages.dev/og-image.png" />
     <meta property="og:url" content="https://landing-ganaan.pages.dev" />
@@ -27,7 +28,7 @@
     <header class="header">
       <div class="header-inner">
         <div class="logo">
-          <img src="/logo.png" alt="가나안화물운송공사" class="logo-img" />
+          <img src="/logo.png" alt="고고트럭 GoGo Truck" class="logo-img" />
         </div>
         <button class="hamburger" onclick="toggleMenu()" aria-label="메뉴">☰</button>
         <nav class="nav" id="navMenu">
@@ -46,13 +47,18 @@
       </video>
       <div class="hero-overlay"></div>
       <div class="hero-inner">
-        <p class="hero-tag">화물운송 · 전차종 상시배차</p>
+        <p class="hero-badge"><span>전국 24시</span> · 언제 어디든 출동</p>
         <h1 class="hero-title">
-          <span>전국 24시</span><br />화물·이사 운송 전문
+          고고트럭 <span class="hero-en">(GoGo Truck)</span>
         </h1>
+        <div class="hero-rolling">
+          <span class="rolling-item active">전국 212개 지점망</span>
+          <span class="rolling-item">24시 다이렉트 최저가 견적</span>
+          <span class="rolling-item">대형화물 · 소형이사 전문</span>
+        </div>
         <p class="hero-desc">
-          1톤부터 25톤까지, 검증된 차량으로<br />전국 어디든 정확하게
-          운송합니다.
+          기업 물류, 대형 화물부터 원룸이사까지<br />검증된 차량으로 전국
+          어디든 정확하고 신속하게 운송합니다.
         </p>
         <div class="hero-btns">
           <button type="button" class="btn-primary" onclick="openInquiryModal()"
@@ -75,15 +81,15 @@
     </div>
     <div class="about-body reveal">
       <p class="about-lead">
-        가나안화물운송공사를 찾아주신<br />
+        고고트럭을 찾아주신<br />
         고객 여러분께 진심으로 감사드립니다.
       </p>
       <div class="about-paras">
         <p>저희는 화물운송 한 건 한 건을 고객의 소중한 자산으로 여기며, 검증된 차량과 숙련된 인력으로 안전하고 정확한 운송을 약속드립니다.</p>
         <p>일반화물부터 이사화물, 기업물류까지 — 작은 짐 하나도 내 것처럼 다루는 정성으로 전국 어디든 책임지고 모시겠습니다.</p>
-        <p>믿고 맡겨주시는 만큼, 정직과 신뢰로 보답하는 가나안화물운송공사가 되겠습니다.</p>
+        <p>믿고 맡겨주시는 만큼, 정직과 신뢰로 보답하는 고고트럭이 되겠습니다.</p>
       </div>
-      <p class="about-sign">가나안화물운송공사 <strong>임직원 일동</strong></p>
+      <p class="about-sign">고고트럭 <strong>임직원 일동</strong></p>
     </div>
   </div>
 </section>
@@ -93,7 +99,7 @@
     <section class="section" id="service">
       <div class="section-inner">
         <h2 class="section-title">화물운송 서비스</h2>
-        <p class="section-sub">고객 맞춤형 화물운송, 가나안이 책임집니다</p>
+        <p class="section-sub">고객 맞춤형 화물운송, 고고트럭이 책임집니다</p>
         <div class="card-grid">
           <div class="card">
             <img src="/service1.png" alt="일반화물" class="card-img" /><div
@@ -333,7 +339,7 @@
           <a href="#" onclick="openPolicy('terms'); return false;">이용약관</a>
         </p>
         <p class="footer-copy">
-          © 2026 가나안화물운송공사. All rights reserved.
+          © 2026 고고트럭 (GoGo Truck). All rights reserved.
         </p>
       </div>
     </footer>
@@ -679,6 +685,19 @@
         }, 3000);
       });
     </script>
+    <script>
+  (function () {
+    const items = document.querySelectorAll('.rolling-item');
+    if (items.length === 0) return;
+    let idx = 0;
+    setInterval(function () {
+      items[idx].classList.remove('active');
+      idx = (idx + 1) % items.length;
+      items[idx].classList.add('active');
+    }, 2500);
+  })();
+</script>
+
   </body>
 </html>
 
@@ -1595,7 +1614,7 @@
   }
 
   .logo-img {
-    height: 40px;
+    height: 111px;
     vertical-align: middle;
   }
   /* 상단 메뉴 호버 효과 */
@@ -2065,6 +2084,57 @@
     display: inline;
   }
 }
+  .hero-en {
+    font-size: 0.6em;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+  .hero-badge {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 6px 18px;
+    border: 2px solid #fbbf24;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(251, 191, 36, 0.15);
+    letter-spacing: 0.5px;
+  }
+  .hero-badge span {
+    color: #fbbf24;
+    font-weight: 800;
+    font-size: 1.15em;
+  }
+  .rolling-item b {
+    background: #fbbf24;
+    color: #1a1a1a;
+    font-weight: 800;
+    padding: 0 8px;
+    border-radius: 6px;
+    margin-right: 4px;
+  }
+  .hero-rolling {
+    position: relative;
+    height: 2.2em;
+    margin: 16px 0;
+    overflow: hidden;
+  }
+  .rolling-item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fbbf24;
+  }
+  .rolling-item.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
 </style>
 
